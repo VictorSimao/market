@@ -2,6 +2,7 @@ from flask import Flask
 from database import db, migrate
 from flask_cors import CORS
 from app.salesman.view import app_salesman
+from app.marketplace.view import app_marketplace
 
 
 def create_app():
@@ -18,3 +19,4 @@ def create_app():
 
 def _register_blueprint(app):
     app.register_blueprint(app_salesman)
+    app.register_blueprint(app_marketplace)
