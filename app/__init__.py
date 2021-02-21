@@ -1,9 +1,11 @@
-from flask import Flask
 from database import db, migrate
+from flask import Flask
 from flask_cors import CORS
-from app.salesman.view import app_salesman
+
+from app.category.view import app_category
 from app.marketplace.view import app_marketplace
 from app.product.view import app_product
+from app.salesman.view import app_salesman
 
 
 def create_app():
@@ -22,3 +24,4 @@ def _register_blueprint(app):
     app.register_blueprint(app_salesman)
     app.register_blueprint(app_marketplace)
     app.register_blueprint(app_product)
+    app.register_blueprint(app_category)

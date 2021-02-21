@@ -1,5 +1,5 @@
-from uuid import uuid4
 import re
+from uuid import uuid4
 
 from app.exceptions import ConflictException
 from database import db
@@ -13,6 +13,7 @@ class Product(db.Model):
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(240), nullable=False)
     price = db.Column(db.Float(10), nullable=False)
+    categories = db.relationship("Category", back_populates="product")
 
     @validates('name')
     def name_validate(self, key, name: str):
@@ -31,14 +32,6 @@ class Product(db.Model):
         if not price:
             raise ConflictException(msg='Product price is empty')
         if re.findall('[a-zA-Z_+-,@#$%¨&*^~`´]', price):
-            raise ConflictException(msg='Use only numbers and point in product price')
+            raise ConflictException(
+                msg='Use only numbers and point in product price')
         return price
-    
-    def serialize(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "description": self.description,
-            "price": self.price
-        }
-
