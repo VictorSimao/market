@@ -1,33 +1,39 @@
 
 # Market
-## Introdução
+## Introduction
 
-Você deve implementar um aplicativo para armazenar dados de vendedores, produtos, marketplaces e categorias.
+An API to store data from salesman, products, marketplaces and categories.
 
-1. CRUD (criar, ler, atualizar e excluir) de vendedores:
-2. CRUD (criar, ler, atualizar e excluir) de produtos:
-3. CRUD (criar, ler, atualizar e excluir) de marketplaces:
-4. CRUD (criar, ler, atualizar e excluir) de categorias:
+## Documentation API
 
-Ao final o sistema deve permitir as ações a seguir:
-* Cadastrar vendedores, produtos, marketplaces e categorias
-* Ler os dados de vendedores, produtos, marketplaces e categorias
-* Atualizar os dados de vendedores, produtos, marketplaces e categorias
-* Excluir os dados de vendedores, produtos, marketplaces e categorias
+This documentation is intended to assist in the use of the API.
+
+* [Documentation](https://documenter.getpostman.com/view/10705697/TWDXocBw)
+![](database/ImageDocumetation.PNG?raw=true)
 
 # Getting started
+### Prerequisite
+
+* [Python 3.8](https://www.python.org/downloads/)
+* [Git 2.30](https://git-scm.com/downloads)
+
 ### Instalation
 
 1. Clone the repo
-2. Run 'pipenv run'
-3. Run 'python3 run.py' to run the application
-6. Visit localhost:5000 to see the application
+2. Run 'pip install --user pipenv'
+3. Run 'pipenv install'
+4. Run 'pipenv run flask run' to run the application
+5. Consult the [documentation](https://documenter.getpostman.com/view/10705697/TWDXocBw) and use [Postman](https://www.postman.com/downloads/) or the tool of your choice
 
-### Technology Stack
+### Technology
 
-1. Flask-1.1.2
-2. Python-3.8.6
-3. 
-4. 
-5. 
-6. 
+1. Python 3.8.6
+2. Flask 1.1
+3. Visual Studio Code 1.53
+4. Postman 8.0.4
+5. DBeaver 7.3.3
+6. Windows 10
+
+
+<br>
+Victor Simão :beers: [Mande um oi!](https://www.linkedin.com/in/victordiogosimao/)
