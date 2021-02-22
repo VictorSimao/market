@@ -12,6 +12,11 @@ This documentation is intended to assist in the use of the API.
 ![](database/ImageDocumetation.PNG?raw=true)
 
 # Getting started
+### Prerequisite
+
+* [Python 3.8](https://www.python.org/downloads/)
+* [Git 2.30](https://git-scm.com/downloads)
+
 ### Instalation
 
 1. Clone the repo
@@ -23,9 +28,12 @@ This documentation is intended to assist in the use of the API.
 ### Technology
 
 1. Python 3.8.6
-2. Visual Studio Code 1.53
-3. Postamn 8.0.4
-4. DBeaver 7.3.3
+2. Flask 1.1
+3. Visual Studio Code 1.53
+4. Postman 8.0.4
+5. DBeaver 7.3.3
+6. Windows 10
+
 
 <br>
 Victor Simão :beers: [Mande um oi!](https://www.linkedin.com/in/victordiogosimao/)
