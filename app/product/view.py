@@ -16,13 +16,11 @@ def create_product():
 
 @app_product.route('/product', methods=['GET'])
 def get_all_product():
-    if request.args.get('all'):
-        return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
-    payload = request.args.to_dict()
-    products_found = filters(payload)
-    # if products_found:
-    return jsonify([PRODUCT_SCHEMA.dump(product) for product in products_found]), 200
-    # return jsonify("No products found!"), 200
+    payload = request.args.to_dict() 
+    if payload:
+        return jsonify([PRODUCT_SCHEMA.dump(product) for product in filters(payload)]), 200
+    return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
+    
 
 
 @app_product.route('/product/<id>', methods=['GET'])

@@ -71,4 +71,6 @@ def filters(data: dict):
                 products_valid.append(False)
         if all(products_valid):
             products.append(product)
+    if not products:
+        products = "No products found!"
     return products
