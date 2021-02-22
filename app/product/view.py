@@ -17,9 +17,12 @@ def create_product():
 @app_product.route('/product', methods=['GET'])
 def get_all_product():
     payload = request.args.to_dict() 
-    if payload:
+    if not payload:
+        return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
+    filtered_products = filters(payload)
+    if filtered_products:
         return jsonify([PRODUCT_SCHEMA.dump(product) for product in filters(payload)]), 200
-    return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
+    return jsonify("Products not found"), 204
     
 
 
