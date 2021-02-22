@@ -1,7 +1,7 @@
-from app.category.action import (create, delete_register, get_all,
-                                 get_by_id, update, update_category_with_product)
-from flask import Blueprint, jsonify, request
+from app.category.action import (create, delete_register, get_all, get_by_id,
+                                 update)
 from app.category.schema import CategorySchema
+from flask import Blueprint, jsonify, request
 
 CATEGORY_SCHEMA = CategorySchema()
 app_category = Blueprint('app_category', __name__)
@@ -36,9 +36,3 @@ def put_category(id: int):
 def delete_category(id: int):
     category = delete_register(id)
     return jsonify(""), 204
-
-
-@app_category.route('/category/<category_id>/product/<product_id>', methods=['POST'])
-def update_relationship(category_id, product_id):
-    table_updated = update_category_with_product(category_id, product_id)
-    return jsonify(table_updated), 200

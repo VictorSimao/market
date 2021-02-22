@@ -2,6 +2,7 @@ import re
 from uuid import uuid4
 
 from app.exceptions import ConflictException
+from app.product.model import Product
 from database import db
 from sqlalchemy.orm import validates
 
@@ -13,7 +14,7 @@ class Category(db.Model):
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(240), nullable=False)
     product_id = db.Column(db.String(36), db.ForeignKey("product.id"))
-    product = db.relationship("Product", back_populates="categories")
+    product = db.relationship(Product, back_populates="categories")
 
     @validates('name')
     def name_validate(self, key, name: str):

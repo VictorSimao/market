@@ -1,5 +1,5 @@
-from app.product.action import (create, delete_register, get_all, get_by_id,
-                                update)
+from app.product.action import (create, delete_register, filters, get_all,
+                                get_by_id, update)
 from app.product.schema import ProductSchema
 from flask import Blueprint, jsonify, request
 
@@ -16,7 +16,13 @@ def create_product():
 
 @app_product.route('/product', methods=['GET'])
 def get_all_product():
-    return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
+    if request.args.get('all'):
+        return jsonify([PRODUCT_SCHEMA.dump(product) for product in get_all()]), 200
+    payload = request.args.to_dict()
+    products_found = filters(payload)
+    # if products_found:
+    return jsonify([PRODUCT_SCHEMA.dump(product) for product in products_found]), 200
+    # return jsonify("No products found!"), 200
 
 
 @app_product.route('/product/<id>', methods=['GET'])
